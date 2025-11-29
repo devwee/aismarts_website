@@ -102,6 +102,111 @@ function initSiteScripts() {
         });
     }
 
+    
+    // ------------------------------
+    // STACKED SCROLLING CARDS
+    // ------------------------------
+    if (window.innerWidth > 768) {
+        const section = document.querySelector('.stacked-cards-section');
+        const container = document.querySelector('.stacked-cards-container');
+        const cards = Array.from(document.querySelectorAll('.stack-card'));
+        const pinnedTabsContainer = document.querySelector('.pinned-tabs');
+
+        if (section && container && cards.length && pinnedTabsContainer) {
+            const cardCount = cards.length;
+
+            // Build pinned tabs from each card's .stack-card-tab content
+            pinnedTabsContainer.innerHTML = '';
+            cards.forEach(card => {
+                const tabContent = card.querySelector('.stack-card-tab');
+                if (!tabContent) return;
+
+                const pinnedTab = document.createElement('div');
+                pinnedTab.className = 'pinned-tab';
+                pinnedTab.dataset.cardId = card.dataset.cardId || '';
+
+                // Copy inner HTML but adjust class names
+                let html = tabContent.innerHTML;
+                html = html.replace(/tab-icon/g, 'pinned-tab-icon');
+                html = html.replace(/tab-title/g, 'pinned-tab-title');
+                pinnedTab.innerHTML = html;
+
+                pinnedTabsContainer.appendChild(pinnedTab);
+            });
+
+            const pinnedTabs = Array.from(
+                pinnedTabsContainer.querySelectorAll('.pinned-tab')
+            );
+
+            function updateStackedCards() {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const viewportHeight = window.innerHeight;
+
+                // how far we've scrolled inside this section
+                const scrollY = window.scrollY;
+                const distanceIntoSection = scrollY - sectionTop;
+                const totalScrollable = sectionHeight - viewportHeight;
+
+                if (totalScrollable <= 0) return;
+
+                let progress = distanceIntoSection / totalScrollable;
+                progress = Math.max(0, Math.min(1, progress));
+
+                // map 0–1 progress to card indices
+                const activeIndex = Math.round(progress * (cardCount - 1));
+
+                cards.forEach((card, index) => {
+                    card.classList.remove('past', 'active', 'upcoming');
+
+                    if (index < activeIndex) {
+                        card.classList.add('past');
+                    } else if (index === activeIndex) {
+                        card.classList.add('active');
+                    } else {
+                        card.classList.add('upcoming');
+                    }
+                });
+
+                // show pinned tabs for past cards only
+                pinnedTabs.forEach((tab, index) => {
+                    if (index < activeIndex) {
+                        tab.classList.add('visible');
+                        tab.style.transitionDelay = `${index * 0.06}s`;
+                    } else {
+                        tab.classList.remove('visible');
+                        tab.style.transitionDelay = '0s';
+                    }
+                });
+            }
+
+            // initial state
+            updateStackedCards();
+
+            let ticking = false;
+            window.addEventListener(
+                'scroll',
+                () => {
+                    if (!ticking) {
+                        window.requestAnimationFrame(() => {
+                            updateStackedCards();
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                },
+                { passive: true }
+            );
+
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768) {
+                    updateStackedCards();
+                }
+            });
+        }
+    }
+
+
     // ------------------------------
     // SMOOTH SCROLL FOR ANCHOR LINKS
     // ------------------------------
@@ -125,157 +230,7 @@ function initSiteScripts() {
         }
     });
 
-    // ------------------------------
-    // STACKED SCROLLING CARDS
-    // ------------------------------
-    // Only run on desktop/tablet
-    if (window.innerWidth > 768) {
-        const section = document.querySelector('.stacked-cards-section');
-        const container = document.querySelector('.stacked-cards-container');
-        const cards = document.querySelectorAll('.stack-card');
-        const pinnedTabsContainer = document.querySelector('.pinned-tabs');
 
-        if (section && container && cards.length) {
-            const cardCount = cards.length;
-            let ticking = false;
-
-            // ====================================
-            // Create pinned tabs for each card
-            // ====================================
-            cards.forEach((card) => {
-                const tabContent = card.querySelector('.stack-card-tab');
-                if (tabContent) {
-                    const pinnedTab = document.createElement('div');
-                    pinnedTab.className = 'pinned-tab';
-                    pinnedTab.innerHTML = tabContent.innerHTML;
-                    pinnedTab.dataset.cardId = card.dataset.cardId;
-
-                    // Replace generic class names with specific ones
-                    pinnedTab.innerHTML = pinnedTab.innerHTML
-                        .replace('tab-icon', 'pinned-tab-icon')
-                        .replace('tab-title', 'pinned-tab-title');
-
-                    pinnedTabsContainer.appendChild(pinnedTab);
-                }
-            });
-
-            const pinnedTabs = document.querySelectorAll('.pinned-tab');
-
-            // ====================================
-            // Calculate scroll progress and update cards
-            // ====================================
-            function updateCards() {
-                // Get section's position relative to viewport
-                const sectionRect = section.getBoundingClientRect();
-                const sectionTop = sectionRect.top;
-                const sectionHeight = container.offsetHeight;
-
-                // Calculate how far we've scrolled through the section (0 to 1)
-                // When section top hits top of viewport, progress starts
-                const scrollProgress = -sectionTop / (sectionHeight - window.innerHeight);
-                const clampedProgress = Math.max(0, Math.min(1, scrollProgress));
-
-                // Determine which card should be active based on scroll progress
-                // Divide progress into equal segments for each card
-                const progressPerCard = 1 / cardCount;
-                const activeIndex = Math.min(
-                    cardCount - 1,
-                    Math.floor(clampedProgress / progressPerCard)
-                );
-
-                // Calculate progress within current card (0 to 1)
-                const cardProgress = (clampedProgress % progressPerCard) / progressPerCard;
-
-                // Update cards based on their position relative to active card
-                cards.forEach((card, index) => {
-                    const cardElement = card;
-
-                    if (index < activeIndex) {
-                        // Past cards - already scrolled past
-                        cardElement.classList.remove('upcoming', 'active');
-                        cardElement.classList.add('past');
-
-                    } else if (index === activeIndex) {
-                        // Current active card
-                        cardElement.classList.remove('upcoming', 'past');
-                        cardElement.classList.add('active');
-
-                        // Smooth transition animation based on cardProgress
-                        const inner = card.querySelector('.stack-card-inner');
-                        if (inner) {
-                            // Optional: Add subtle scale/transform during transition
-                            const scale = 1 - (cardProgress * 0.02); // Subtle scale down
-                            inner.style.transform = `translateY(0) scale(${scale})`;
-                            inner.style.opacity = 1;
-                        }
-
-                    } else if (index === activeIndex + 1) {
-                        // Next card - animating into view
-                        cardElement.classList.remove('past', 'active');
-                        cardElement.classList.add('upcoming');
-
-                        const inner = card.querySelector('.stack-card-inner');
-                        if (inner) {
-                            // Animate from bottom as user scrolls
-                            const translateY = 100 - (cardProgress * 100); // 100% to 0%
-                            const scale = 0.9 + (cardProgress * 0.1); // 0.9 to 1
-                            const opacity = cardProgress; // 0 to 1
-
-                            inner.style.transform = `translateY(${translateY}%) scale(${scale})`;
-                            inner.style.opacity = opacity;
-                        }
-
-                    } else {
-                        // Cards further ahead - stay hidden below
-                        cardElement.classList.remove('past', 'active');
-                        cardElement.classList.add('upcoming');
-                    }
-                });
-
-                // Update pinned tabs visibility
-                pinnedTabs.forEach((tab, index) => {
-                    if (index < activeIndex) {
-                        // Show tabs for past cards
-                        tab.classList.add('visible');
-                        // Stagger animation delay
-                        tab.style.transitionDelay = `${index * 0.1}s`;
-                    } else {
-                        // Hide tabs for current and future cards
-                        tab.classList.remove('visible');
-                    }
-                });
-            }
-
-            // ====================================
-            // Scroll event handler with RAF optimization
-            // ====================================
-            function onScroll() {
-                if (!ticking) {
-                    window.requestAnimationFrame(() => {
-                        updateCards();
-                        ticking = false;
-                    });
-                    ticking = true;
-                }
-            }
-
-            // ====================================
-            // Initialize
-            // ====================================
-            // Set initial state
-            updateCards();
-
-            // Listen to scroll events
-            window.addEventListener('scroll', onScroll, { passive: true });
-
-            // Re-calculate on resize
-            window.addEventListener('resize', () => {
-                if (window.innerWidth > 768) {
-                    updateCards();
-                }
-            });
-        }
-    }
 }
 
 // Run once for normal static pages

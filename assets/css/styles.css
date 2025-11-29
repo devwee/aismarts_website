@@ -1011,7 +1011,7 @@ img {
     .cta-image-card {
         display: block;
         position: relative;
-        z-index: 2;
+        z-index: 1;
         border-radius: 1rem;
         overflow: hidden;
         box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
@@ -1028,37 +1028,120 @@ img {
         border-radius: 1rem;
     }
 }
+/* === STACKED PRODUCT SECTION === */
 
-/* ====================================
-   STACKED SCROLLING CARDS SECTION
-   ==================================== */
-
-/* Main section container - creates scroll space */
-.stacked-cards-section {
-    position: relative;
-    background: linear-gradient(180deg, var(--color-light-bg) 0%, var(--color-white) 100%);
-    padding: 0;
-    overflow: hidden;
+.product-stack {
+  position: relative;
+  height: 400vh; /* long enough for 4 cards to step through */
+  background: var(--color-light-bg);
 }
 
-/* Container that creates the scroll height */
-.stacked-cards-container {
-    /* Height = number of cards × 100vh */
-    /* 4 cards = 400vh total scroll space */
-    height: 400vh;
-    position: relative;
+.product-stack__sticky {
+  position: sticky;
+  top: 96px; /* adjust based on your navbar height */
+  height: calc(100vh - 96px - 48px); /* full viewport minus header + a bit of padding */
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
 }
 
-/* Sticky viewport that stays in view while scrolling */
-.stacked-cards-viewport {
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+/* Container that holds all overlapping cards */
+.product-stack__cards {
+  position: relative;
 }
+
+/* Base product card style */
+.product-card {
+  position: absolute;
+  inset: 0;
+  background: var(--color-white);
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.18);
+  padding: 3rem;
+  transform-origin: top left;
+  opacity: 0;
+  transform: translateY(40px) scale(0.96);
+  transition:
+    transform 0.45s ease,
+    opacity 0.45s ease,
+    box-shadow 0.45s ease;
+}
+
+/* Active front card */
+.product-card.is-active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  z-index: 30;
+}
+
+/* Cards we’ve already scrolled past: small offset + scale */
+.product-card.is-past {
+  opacity: 1;
+  transform: translate(-1.4rem, -1.4rem) scale(0.92);
+  z-index: 10;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+}
+
+/* Future cards: behind, slightly down */
+.product-card.is-future {
+  opacity: 0;
+  transform: translateY(40px) scale(0.96);
+  z-index: 1;
+}
+
+/* Little “previous product” chips */
+.product-stack__tabs {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  pointer-events: none;
+}
+
+.product-stack__tab {
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.85);
+  color: var(--color-white);
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.3);
+}
+
+/* Let mobile fall back to simple stacking */
+@media (max-width: 768px) {
+  .product-stack {
+    height: auto;
+  }
+
+  .product-stack__sticky {
+    position: static;
+    height: auto;
+  }
+
+  .product-stack__cards {
+    position: static;
+  }
+
+  .product-card {
+    position: static;
+    opacity: 1 !important;
+    transform: none !important;
+    margin-bottom: 1.5rem;
+  }
+
+  .product-stack__tabs {
+    display: none;
+  }
+}
+
+
+
 
 /* ====================================
    PINNED TABS (Top-left corner)
@@ -1409,8 +1492,8 @@ img {
     margin-right: auto;
 
     /* Card look */
-    border-top-left-radius: 2rem;
-    border-top-right-radius: 2rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
     box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.25);
 }
 
