@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir /b \"c:\\Users\\khair\\Documents\\Python\\aismarts_website\")",
+      "Bash(dir /b \"c:\\Users\\khair\\Documents\\Python\\aismarts_website\\assets\\images\")",
+      "Bash(python -m http.server:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

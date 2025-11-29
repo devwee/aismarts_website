@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solutions – AI Smarts</title>
+    <meta name="description" content="AI solutions for life's complex decisions. From license plate valuations to future decision tools for money, relationships, and lifestyle.">
+    <link rel="icon" type="image/png" href="assets/images/logo_aismarts.png">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <!-- Header / Navigation -->
+    <div id="header"></div>
+
+    <!-- Hero Section -->
+    <section class="hero hero--small">
+        <div class="container">
+            <div class="hero-content">
+                <h1>AI solutions for life's <span class="highlight">complex decisions</span>.</h1>
+                <p class="hero-subtitle">We build AI tools for decision-making across different domains — starting with valuations and expanding into tools that support smarter choices in money, relationships, and lifestyle.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Cards Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Our Products</h2>
+            <div class="product-grid">
+                <div class="card product-card">
+                    <div class="product-badge">Available Soon</div>
+                    <h3>PlateWorth</h3>
+                    <p class="product-subtitle">AI valuations for Australian number plates</p>
+                    <p>Know what your license plate is worth before you sell. PlateWorth uses AI and real market data to estimate minimum, average, and maximum values for custom plates across Australia.</p>
+                    <div class="product-features">
+                        <span class="feature-tag">Market Analysis</span>
+                        <span class="feature-tag">Price Estimation</span>
+                        <span class="feature-tag">Historical Data</span>
+                    </div>
+                    <a href="plateworth.html" class="btn btn-secondary">Learn More</a>
+                </div>
+                <div class="card product-card">
+                    <div class="product-badge product-badge--future">In Development</div>
+                    <h3>Upcoming Decision Tools</h3>
+                    <p class="product-subtitle">AI for money, relationships, and lifestyle</p>
+                    <p>We're exploring new products that bring AI-powered insights to other complex decisions. From financial choices to personal connections, we're building tools that turn uncertainty into clarity.</p>
+                    <div class="product-features">
+                        <span class="feature-tag">Money</span>
+                        <span class="feature-tag">Relationships</span>
+                        <span class="feature-tag">Lifestyle</span>
+                    </div>
+                    <a href="contact.html" class="btn btn-secondary">Stay Informed</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology Section -->
+    <section class="section section--alt">
+        <div class="container">
+            <div class="section-intro">
+                <h2>Our Methodology</h2>
+                <p>We follow a systematic approach to building AI decision tools that are practical, transparent, and effective.</p>
+            </div>
+            <div class="methodology-steps">
+                <div class="step-card">
+                    <div class="step-number">01</div>
+                    <h3>Identify Complex Decisions</h3>
+                    <p>We find high-value decisions where people lack good information or struggle with data overload.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">02</div>
+                    <h3>Collect & Structure Data</h3>
+                    <p>We gather fragmented data from multiple sources and organize it into structured, usable formats.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">03</div>
+                    <h3>Train AI Models</h3>
+                    <p>We build and train machine learning models to find patterns, trends, and probabilistic insights.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">04</div>
+                    <h3>Create Simple Outputs</h3>
+                    <p>We transform complex model outputs into clear, human-friendly insights that anyone can understand.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">05</div>
+                    <h3>Iterate & Improve</h3>
+                    <p>We continuously refine our models with real-world feedback to improve accuracy and usefulness.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-band">
+        <div class="container">
+            <div class="cta-wrapper">
+                <div class="cta-content">
+                    <h2>Ready to make better decisions?</h2>
+                    <p>Join the PlateWorth waitlist or get in touch to learn more.</p>
+                    <a href="contact.html" class="btn btn-primary btn-large">Get Started</a>
+                </div>
+                <div class="cta-image-card">
+                    <img src="assets/images/footer/footer.png" alt="Analytics Dashboard" class="cta-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+</body>
+</html>
+
+
+
+<script src="assets/js/script.js"></script>
+<script>
+    async function loadHTML(id, file) {
+        const res = await fetch(file);
+        document.getElementById(id).innerHTML = await res.text();
+    }
+
+    (async () => {
+        await Promise.all([
+            loadHTML('header', '/components/header.html'),
+            loadHTML('footer', '/components/footer.html'),
+        ]);
+
+        // now header/footer exist => attach listeners/animations
+        if (window.initSiteScripts) {
+            window.initSiteScripts();
+        }
+    })();
+</script>

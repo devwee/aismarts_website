@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Vision – AI Smarts</title>
+    <meta name="description" content="Our vision for the future of AI-powered decision making. AI Smarts is building a world where intelligent tools help people make better decisions.">
+    <link rel="icon" type="image/png" href="assets/images/logo_aismarts.png">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <!-- Header / Navigation -->
+    <div id="header"></div>
+
+    <!-- Hero Section -->
+    <section class="hero hero--small">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Our <span class="highlight">Vision</span></h1>
+                <p class="hero-subtitle">A world where anyone can access intelligent tools that turn complex, data-heavy questions into simple, actionable answers.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Content Section -->
+    <section class="section">
+        <div class="container">
+            <div class="story-content">
+                <h2>The Future We're Building</h2>
+                <p>We envision a world where powerful AI-driven insights aren't locked away in corporate boardrooms or available only to those with deep technical expertise. Instead, they're accessible to everyone, in the moments that matter most.</p>
+                <p>From pricing an asset to making relationship decisions, from career choices to lifestyle changes — these are the decisions that shape our lives. Yet too often, people make them with incomplete information, conflicting advice, or no data at all.</p>
+                <p>AI Smarts exists to change that.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Cards Section -->
+    <section class="section section--alt">
+        <div class="container">
+            <div class="section-intro">
+                <h2>What We Believe</h2>
+            </div>
+            <div class="approach-grid">
+                <div class="approach-item">
+                    <h4>AI for Everyone</h4>
+                    <p>Decision intelligence shouldn't be a luxury. We build tools that are simple, accessible, and designed for real people — not just data scientists.</p>
+                </div>
+                <div class="approach-item">
+                    <h4>Transparency Over Hype</h4>
+                    <p>We're honest about what AI can and cannot do. We don't oversell. We explain our methodology and openly discuss limitations.</p>
+                </div>
+                <div class="approach-item">
+                    <h4>Focused Solutions</h4>
+                    <p>Rather than building one platform that does everything poorly, we create specialized tools that solve specific problems exceptionally well.</p>
+                </div>
+                <div class="approach-item">
+                    <h4>Human-Centered AI</h4>
+                    <p>AI should support human decisions, not replace them. Our tools augment your judgment with data, never override it.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Long-term Vision Section -->
+    <section class="section">
+        <div class="container">
+            <div class="vision-content">
+                <h2>Where We're Headed</h2>
+                <p class="vision-text">PlateWorth is just the beginning. We're building a portfolio of AI decision tools across money, relationships, and lifestyle — each one designed to bring clarity to a specific, complex decision.</p>
+                <p class="vision-text">In five years, we want AI Smarts to be the name people think of when they face a high-stakes decision and need data-backed guidance. Not a chatbot. Not generic advice. But intelligent, context-aware tools that understand the nuances of real-world problems.</p>
+                <p class="vision-text">We're in this for the long haul. Building carefully. Shipping thoughtfully. Always putting the user's best interest first.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-band">
+        <div class="container">
+            <div class="cta-wrapper">
+                <div class="cta-content">
+                    <h2>Join us on this journey</h2>
+                    <p>Interested in our vision? Get in touch to learn more or explore partnership opportunities.</p>
+                    <a href="contact.html" class="btn btn-primary btn-large">Contact Us</a>
+                </div>
+                <div class="cta-image-card">
+                    <img src="assets/images/footer/footer.png" alt="Analytics Dashboard" class="cta-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+</body>
+</html>
+
+
+<script src="assets/js/script.js"></script>
+<script>
+    async function loadHTML(id, file) {
+        const res = await fetch(file);
+        document.getElementById(id).innerHTML = await res.text();
+    }
+
+    (async () => {
+        await Promise.all([
+            loadHTML('header', '/components/header.html'),
+            loadHTML('footer', '/components/footer.html'),
+        ]);
+
+        // now header/footer exist => attach listeners/animations
+        if (window.initSiteScripts) {
+            window.initSiteScripts();
+        }
+    })();
+</script>

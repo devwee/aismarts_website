@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us – AI Smarts</title>
+    <meta name="description" content="A small team with a big vision for smarter decisions. Meet the founders of AI Smarts and learn about our mission to empower people with AI-driven insights.">
+    <link rel="icon" type="image/png" href="assets/images/logo_aismarts.png">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <!-- Header / Navigation -->
+       <div id="header"></div>
+
+    <!-- Hero Section -->
+    <section class="hero hero--small">
+        <div class="container">
+            <div class="hero-content">
+                <h1>A small team with a big vision for <span class="highlight">smarter decisions</span>.</h1>
+                <p class="hero-subtitle">AI Smarts is an Australian AI startup focused on building tools that make complex decisions easier, more transparent, and more confident.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="section">
+        <div class="container">
+            <div class="story-content">
+                <h2>Our Story</h2>
+                <p>People make big decisions every day — selling valuable assets, navigating relationships, choosing between lifestyle options — often with incomplete or unclear information.</p>
+                <p>The three founders of AI Smarts came together with a shared belief: that powerful, data-driven insights shouldn't be locked away in corporate boardrooms. They should be accessible to everyone, in the moments that matter most.</p>
+                <p>We started AI Smarts to bring AI-powered decision intelligence into everyday life — building tools that are practical, transparent, and designed for real humans.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section class="section section--alt">
+        <div class="container">
+            <div class="mission-vision">
+                <div class="card mission-card">
+                    <h3>Our Mission</h3>
+                    <p>To empower people with AI-driven insights so they can make smarter, more confident decisions in the moments that matter.</p>
+                </div>
+                <div class="card mission-card">
+                    <h3>Our Vision</h3>
+                    <p>A world where anyone can access intelligent tools that turn complex, data-heavy questions into simple, actionable answers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founders Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-intro">
+                <h2>The Founders</h2>
+                <p>Three people, one vision: leveraging AI to help people make better decisions.</p>
+            </div>
+            <div class="founders-grid">
+                <div class="card founder-card">
+                    <div class="founder-avatar">
+                        <div class="avatar-placeholder">M</div>
+                    </div>
+                    <h3>Founder 1</h3>
+                    <p class="founder-role">Product & Strategy</p>
+                    <p>Brings experience in product development, market strategy, and turning complex ideas into user-friendly solutions.</p>
+                </div>
+                <div class="card founder-card">
+                    <div class="founder-avatar">
+                        <div class="avatar-placeholder">K</div>
+                    </div>
+                    <h3>Founder 2</h3>
+                    <p class="founder-role">Data & AI</p>
+                    <p>Specializes in machine learning, data analysis, and building AI models that solve real-world problems.</p>
+                </div>
+                <div class="card founder-card">
+                    <div class="founder-avatar">
+                        <div class="avatar-placeholder">B</div>
+                    </div>
+                    <h3>Founder 3</h3>
+                    <p class="founder-role">Engineering & Operations</p>
+                    <p>Brings expertise in software engineering, system architecture, and operational execution.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Approach to AI Section -->
+    <section class="section section--alt">
+        <div class="container">
+            <div class="approach-content">
+                <h2>Our Approach to AI</h2>
+                <div class="approach-grid">
+                    <div class="approach-item">
+                        <h4>Practical Impact</h4>
+                        <p>We build AI tools that solve real problems, not technology for its own sake. Every product must deliver tangible value.</p>
+                    </div>
+                    <div class="approach-item">
+                        <h4>Transparency</h4>
+                        <p>We're honest about what our AI can and cannot do. We clearly communicate limitations and uncertainties.</p>
+                    </div>
+                    <div class="approach-item">
+                        <h4>Human-Centered</h4>
+                        <p>AI should support human decisions, not replace them. We design tools that empower people, not automate them away.</p>
+                    </div>
+                    <div class="approach-item">
+                        <h4>Continuous Improvement</h4>
+                        <p>We iterate based on real-world feedback, continuously refining our models to be more accurate and useful.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-band">
+        <div class="container">
+            <div class="cta-wrapper">
+                <div class="cta-content">
+                    <h2>Want to learn more?</h2>
+                    <p>Get in touch with us or join the PlateWorth waitlist.</p>
+                    <a href="contact.html" class="btn btn-primary btn-large">Contact Us</a>
+                </div>
+                <div class="cta-image-card">
+                    <img src="assets/images/footer/footer.png" alt="Analytics Dashboard" class="cta-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+</body>
+</html>
+
+
+<script src="assets/js/script.js"></script>
+<script>
+    async function loadHTML(id, file) {
+        const res = await fetch(file);
+        document.getElementById(id).innerHTML = await res.text();
+    }
+
+    (async () => {
+        await Promise.all([
+            loadHTML('header', '/components/header.html'),
+            loadHTML('footer', '/components/footer.html'),
+        ]);
+
+        // now header/footer exist => attach listeners/animations
+        if (window.initSiteScripts) {
+            window.initSiteScripts();
+        }
+    })();
+</script>

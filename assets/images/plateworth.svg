@@ -1,0 +1,25 @@
+<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Magnifying glass lens -->
+                            <circle cx="200" cy="100" r="88" fill="none" stroke="#374151" stroke-width="6" opacity="0.8"></circle>
+                            <circle cx="200" cy="100" r="82" fill="none" stroke="#6B7280" stroke-width="2" opacity="0.4"></circle>
+
+                            <!-- Magnifying glass handle -->
+                            <line x1="275" y1="155" x2="335" y2="185" stroke="#374151" stroke-width="12" stroke-linecap="round" opacity="0.8"></line>
+                            <line x1="277" y1="157" x2="333" y2="183" stroke="#6B7280" stroke-width="6" stroke-linecap="round" opacity="0.6"></line>
+
+                            <!-- Handle connection -->
+                            <circle cx="275" cy="155" r="8" fill="#374151" opacity="0.7"></circle>
+                            <circle cx="275" cy="155" r="5" fill="#6B7280" opacity="0.5"></circle>
+
+                            <!-- Handle grip texture -->
+                            <line x1="285" y1="160" x2="325" y2="180" stroke="#374151" stroke-width="1.5" opacity="0.4"></line>
+                            <line x1="290" y1="165" x2="320" y2="175" stroke="#374151" stroke-width="1.5" opacity="0.4"></line>
+                            <line x1="295" y1="170" x2="315" y2="180" stroke="#374151" stroke-width="1.5" opacity="0.4"></line>
+
+                            <!-- License plate banner -->
+                            <rect x="40" y="78" width="320" height="44" rx="6" fill="#1F2937" stroke="#374151" stroke-width="2"></rect>
+                            <rect x="45" y="82" width="10" height="36" rx="3" fill="#374151" opacity="0.3"></rect>
+                            <rect x="345" y="82" width="10" height="36" rx="3" fill="#374151" opacity="0.3"></rect>
+
+                            <text x="200" y="102" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle" letter-spacing="2px">PLATEWORTH</text>
+                        </svg>
