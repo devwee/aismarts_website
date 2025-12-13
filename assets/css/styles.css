@@ -791,9 +791,13 @@ img {
 
 .valuation-values {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1rem;
     margin-bottom: 1.25rem;
+}
+
+.hero-card .valuation-values {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .value-item {
@@ -817,7 +821,7 @@ img {
 }
 
 .value-item--primary {
-    transform: scale(1.08);
+    transform: none;
 }
 
 .value-label {
@@ -921,6 +925,10 @@ img {
 @media (max-width: 1024px) {
     .valuation-values {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero-card .valuation-values {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
 
@@ -1437,22 +1445,23 @@ img {
 
 .work-card {
     position: relative;
-    padding-left: 4rem;
+    padding-left: 4.5rem;
+    padding-top: 0.5rem;
 }
 
 .work-number {
     position: absolute;
     left: 1.5rem;
     top: 1.5rem;
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     background-color: var(--color-green);
     color: var(--color-white);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: 700;
 }
 
@@ -3064,6 +3073,10 @@ p.footer-legal span {
     .hero-card--primary .valuation-card {
         padding: 1.35rem;
         width: 100%;
+    }
+
+    .hero-card .valuation-values {
+        grid-template-columns: 1fr;
     }
 
     .hero-card--primary .valuation-card,
