@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions – AI Smarts</title>
+    <meta name="description" content="Terms and conditions for AI Smarts and MKB Solutions services.">
+    <link rel="icon" type="image/png" href="assets/images/logo_aismarts.png">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <div id="header"></div>
+
+    <!-- Hero Section -->
+    <section class="hero hero--small">
+        <div class="container">
+            <div class="hero-content" style="text-align: center; max-width: 900px; margin: 0 auto;">
+                <h1>Terms & Conditions</h1>
+                <p class="hero-subtitle">The commitments and responsibilities that guide how AI Smarts delivers intelligent decision tools.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Terms Content -->
+    <section class="section">
+        <div class="container">
+            <div class="content-wrapper" style="max-width: 900px; margin: 0 auto;">
+                <p style="margin-bottom: 2rem;">Welcome to AI Smarts, your trusted partner in AI-powered decision intelligence. By accessing our website or using our services, you agree to comply with the following terms and conditions:</p>
+
+                <div class="terms-section" style="margin-bottom: 2.5rem;">
+                    <h3 style="color: var(--color-deep-blue); margin-bottom: 1rem;">1. Service Assurance</h3>
+                    <p>AI Smarts is committed to providing reliable and innovative AI decision tools tailored to your needs. Our mission is to make complex decisions simple and clear, ensuring your confidence and success through transparent, data-driven insights.</p>
+                </div>
+
+                <div class="terms-section" style="margin-bottom: 2.5rem;">
+                    <h3 style="color: var(--color-deep-blue); margin-bottom: 1rem;">2. Account Registration</h3>
+                    <p>In order to access certain features of our services, you may be required to create an account. You are responsible for maintaining the confidentiality of your account information and ensuring its accuracy at all times.</p>
+                </div>
+
+                <div class="terms-section" style="margin-bottom: 2.5rem;">
+                    <h3 style="color: var(--color-deep-blue); margin-bottom: 1rem;">3. User Conduct</h3>
+                    <p>When using AI Smarts' services, you agree to conduct yourself in a professional and respectful manner. Any misuse of our platform, including but not limited to unauthorized access or manipulation of our AI tools, may result in the termination of your account.</p>
+                </div>
+
+                <div class="terms-section" style="margin-bottom: 2.5rem;">
+                    <h3 style="color: var(--color-deep-blue); margin-bottom: 1rem;">4. Data Security</h3>
+                    <p>We take the security of your data seriously and implement industry-standard measures to protect it from unauthorised access. By entrusting us with your information, you can rest assured that your privacy is safeguarded according to our Privacy Policy.</p>
+                </div>
+
+                <div class="terms-section" style="margin-bottom: 2.5rem;">
+                    <h3 style="color: var(--color-deep-blue); margin-bottom: 1rem;">5. Intellectual Property</h3>
+                    <p>All content, materials, AI models, algorithms, and software provided on our website are the intellectual property of AI Smarts and MKB Solutions Pty Ltd. You may not use, reproduce, distribute, or reverse-engineer any content without our explicit written permission.</p>
+                </div>
+
+                <div class="terms-section" style="margin-bottom: 2.5rem;">
+                    <h3 style="color: var(--color-deep-blue); margin-bottom: 1rem;">6. Service Accuracy and Limitation of Liability</h3>
+                    <p>While AI Smarts strives to provide accurate and reliable AI-powered insights, our services are designed to support your decision-making process, not replace professional judgment. AI Smarts and MKB Solutions Pty Ltd shall not be liable for any direct, indirect, incidental, or consequential damages arising from the use of our services. We provide our AI tools on an "as is" basis and cannot guarantee absolute error-free performance or specific outcomes.</p>
+                </div>
+
+                <div class="terms-section" style="margin-bottom: 2.5rem;">
+                    <h3 style="color: var(--color-deep-blue); margin-bottom: 1rem;">7. Amendment of Terms</h3>
+                    <p>We reserve the right to update or modify these terms and conditions at any time to reflect changes in our services or legal requirements. By continuing to use our services after such changes, you acknowledge and agree to the revised terms. We will notify users of significant changes through our website or email.</p>
+                </div>
+
+                <div class="terms-section" style="margin-bottom: 2.5rem;">
+                    <h3 style="color: var(--color-deep-blue); margin-bottom: 1rem;">8. Contact Us</h3>
+                    <p>If you have any questions, concerns, or feedback regarding our terms and conditions, please reach out to us through our <a href="contact.html" style="color: var(--color-deep-blue); text-decoration: underline;">contact page</a>. Your satisfaction is our priority, and we are here to assist you in any way we can.</p>
+                </div>
+
+                <div style="background: var(--color-light-grey); padding: 2rem; border-radius: 8px; margin-top: 3rem;">
+                    <p style="margin: 0; font-size: 0.95rem; line-height: 1.6;">By using AI Smarts' services, you are not just a client—you are a valued partner in our journey towards mutual success. Together, we can transform complex decisions into clear, confident choices that drive better outcomes.</p>
+                </div>
+
+                <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--color-light-grey); font-size: 0.875rem; color: #666;">
+                    <p><strong>AI Smarts</strong> is operated by <strong>MKB Solutions Pty Ltd</strong> (ABN 48 688 115 200)</p>
+                    <p style="margin: 0.5rem 0 0 0;">Last updated: December 2025</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+</body>
+</html>
+
+<script src="assets/js/script.js"></script>
+<script>
+    async function loadHTML(id, file) {
+        const res = await fetch(file);
+        document.getElementById(id).innerHTML = await res.text();
+    }
+
+    (async () => {
+        await Promise.all([
+            loadHTML('header', '/components/header.html'),
+            loadHTML('footer', '/components/footer.html'),
+        ]);
+
+        // now header/footer exist => attach listeners/animations
+        if (window.initSiteScripts) {
+            window.initSiteScripts();
+        }
+    })();
+</script>

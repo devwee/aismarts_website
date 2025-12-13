@@ -7,7 +7,8 @@
       "Bash(python3:*)",
       "Bash(open -a \"Google Chrome\" http://localhost:8000/index.html)",
       "Bash(osascript:*)",
-      "Bash(open -a \"Google Chrome\" http://localhost:8000/test-stack.html)"
+      "Bash(open -a \"Google Chrome\" http://localhost:8000/test-stack.html)",
+      "Bash(open:*)"
     ],
     "deny": [],
     "ask": []

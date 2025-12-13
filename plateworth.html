@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PlateWorth – AI License Plate Valuations | AI Smarts</title>
-    <meta name="description" content="Know what your plate is worth before you sell. PlateWorth uses AI and real market data to estimate the value of Australian licence plates.">
+    <title>PlateWorth – License Plate Valuations | AI Smarts</title>
+    <meta name="description" content="Know what your plate is worth before you sell. PlateWorth uses market data and pattern analysis to estimate the value of Australian licence plates.">
     <link rel="icon" type="image/png" href="assets/images/logo_aismarts.png">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
@@ -21,7 +21,7 @@
                         <img src="assets/images/plateworth.svg" alt="PlateWorth Logo" class="plateworth-logo">
                     </div>
                     <h1>Know what your plate is <span class="highlight">worth</span> — before you sell.</h1>
-                    <p class="hero-subtitle">PlateWorth uses AI and real market data to estimate the minimum, average, and maximum value of Australian licence plates.</p>
+                    <p class="hero-subtitle">PlateWorth uses market data and pattern analysis to estimate the minimum, average, and maximum value of Australian licence plates.</p>
                     <div class="hero-buttons">
                         <a href="contact.html" class="btn btn-primary">Join PlateWorth Waitlist</a>
                     </div>
@@ -35,7 +35,7 @@
         <div class="container">
             <div class="section-intro">
                 <h2>How PlateWorth Works</h2>
-                <p>We combine AI, market data, and pattern analysis to give you a realistic value range in seconds.</p>
+                <p>We combine market data and pattern analysis to give you a realistic value range in seconds.</p>
             </div>
             <div class="how-it-works">
                 <div class="card work-card">
@@ -46,7 +46,7 @@
                 <div class="card work-card">
                     <div class="work-number">2</div>
                     <h3>We Analyse Patterns</h3>
-                    <p>Our AI models analyse pricing history, rarity indicators, trends, and comparable plates to understand value drivers.</p>
+                    <p>We analyse pricing history, rarity indicators, trends, and comparable plates to understand value drivers.</p>
                 </div>
                 <div class="card work-card">
                     <div class="work-number">3</div>
@@ -63,28 +63,56 @@
             <div class="example-section">
                 <h2>Example Valuation</h2>
                 <p class="example-subtitle">See how PlateWorth estimates the value of a custom plate</p>
+                <p style="font-size: 0.875rem; color: var(--color-medium-grey); margin-bottom: 1.5rem; font-style: italic;">Example for illustrative purposes only. Not a real valuation.</p>
                 <div class="valuation-card valuation-card--large">
                     <div class="valuation-header">
                         <span class="plate-state">NSW</span>
                         <span class="plate-number">FAST88</span>
                     </div>
+
+                    <div class="valuation-divider"></div>
+
                     <div class="valuation-values">
                         <div class="value-item">
                             <span class="value-label">Minimum</span>
-                            <span class="value-amount">$1,200</span>
+                            <span class="value-amount" data-value-type="min">$1,200</span>
                             <span class="value-desc">Conservative estimate</span>
                         </div>
                         <div class="value-item value-item--primary">
                             <span class="value-label">Average</span>
-                            <span class="value-amount">$1,850</span>
+                            <span class="value-amount" data-value-type="avg">$1,850</span>
                             <span class="value-desc">Most likely price</span>
                         </div>
                         <div class="value-item">
                             <span class="value-label">Maximum</span>
-                            <span class="value-amount">$2,400</span>
+                            <span class="value-amount" data-value-type="max">$2,400</span>
                             <span class="value-desc">Optimistic estimate</span>
                         </div>
                     </div>
+
+                    <!-- Mini Line Graph -->
+                    <div class="valuation-graph">
+                        <svg width="100%" height="60" viewBox="0 0 300 60" preserveAspectRatio="none">
+                            <defs>
+                                <linearGradient id="graphGradient2" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.2" />
+                                    <stop offset="100%" style="stop-color:#10b981;stop-opacity:0.05" />
+                                </linearGradient>
+                            </defs>
+
+                            <!-- Fill area under line -->
+                            <polygon class="graph-fill" points="0,60 0,30 150,25 300,35 300,60" fill="url(#graphGradient2)" />
+
+                            <!-- Main line -->
+                            <polyline class="graph-line" points="0,30 150,25 300,35" />
+
+                            <!-- Data points -->
+                            <circle class="graph-point graph-point-min" cx="0" cy="30" r="4" />
+                            <circle class="graph-point graph-point-avg" cx="150" cy="25" r="5" />
+                            <circle class="graph-point graph-point-max" cx="300" cy="35" r="4" />
+                        </svg>
+                    </div>
+
                     <div class="valuation-footer">
                         <span class="ai-badge">AI-Powered Estimate</span>
                         <span class="valuation-date">Updated: January 2025</span>
@@ -102,7 +130,7 @@
             </div>
             <div class="benefits-grid">
                 <div class="card benefit-card">
-                    <div class="benefit-icon">💵</div>
+                    <div class="benefit-number">01</div>
                     <h3>For Sellers</h3>
                     <ul>
                         <li>Avoid underpricing your valuable plates</li>
@@ -111,7 +139,7 @@
                     </ul>
                 </div>
                 <div class="card benefit-card">
-                    <div class="benefit-icon">🎯</div>
+                    <div class="benefit-number">02</div>
                     <h3>For Collectors</h3>
                     <ul>
                         <li>Understand scarcity and demand</li>
@@ -120,7 +148,7 @@
                     </ul>
                 </div>
                 <div class="card benefit-card">
-                    <div class="benefit-icon">✨</div>
+                    <div class="benefit-number">03</div>
                     <h3>For Everyone</h3>
                     <ul>
                         <li>Data-backed decisions, not guesswork</li>
@@ -132,13 +160,36 @@
         </div>
     </section>
 
-    <!-- Transparency Section -->
+    <!-- Disclaimer Section -->
     <section class="section section--alt">
         <div class="container">
-            <div class="transparency-card">
-                <h3>About Our Estimates</h3>
-                <p>PlateWorth provides <strong>estimates</strong> based on historical data, market trends, and AI analysis. Actual sale prices can vary based on buyer demand, timing, presentation, and other market factors.</p>
-                <p>Our models are continuously improving as we gather more data. We're committed to transparency about what our AI can and cannot do.</p>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div style="text-align: center; margin-bottom: 2.5rem;">
+                    <h2>The Fine Print</h2>
+                    <p style="font-size: 1rem; opacity: 0.85;">We believe in transparency. Here's what you should know about PlateWorth estimates.</p>
+                </div>
+
+                <div class="card" style="padding: 2.5rem; background: var(--color-white); border-left: 4px solid var(--color-green);">
+                    <p style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                        PlateWorth provides <strong>estimated value ranges</strong> based on available market data, historical trends, and pattern analysis. These estimates are designed to help inform your decisions — but they're not guarantees, professional appraisals, or financial advice.
+                    </p>
+
+                    <p style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                        Real-world sale prices can differ significantly from our estimates. Market conditions change, buyer preferences vary, and countless factors influence what someone will actually pay for a plate. <strong>We make no warranties about the accuracy or reliability of our estimates.</strong>
+                    </p>
+
+                    <p style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                        By using PlateWorth, you acknowledge that you're relying on these estimates <strong>entirely at your own risk</strong>. AI Smarts and PlateWorth are not responsible for any financial loss, missed opportunities, or other outcomes resulting from your use of our tool.
+                    </p>
+
+                    <p style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 0;">
+                        We strongly recommend doing your own research and consulting with professional appraisers or advisors before making any buying or selling decisions. Using PlateWorth does not create a professional advisory relationship — we're not acting as your financial advisor, broker, or agent.
+                    </p>
+                </div>
+
+                <p style="text-align: center; margin-top: 2rem; font-size: 0.9rem; opacity: 0.7; font-style: italic;">
+                    Our models improve as we gather more data. We're committed to building tools that are helpful, honest, and transparent about their limitations.
+                </p>
             </div>
         </div>
     </section>
@@ -153,7 +204,7 @@
                     <a href="contact.html" class="btn btn-primary btn-large">Join the Waitlist</a>
                 </div>
                 <div class="cta-image-card">
-                    <img src="assets/images/footer/footer.png" alt="Analytics Dashboard" class="cta-image">
+                    <img src="assets/images/cta/cta.jpg" alt="Analytics Dashboard" class="cta-image">
                 </div>
             </div>
         </div>

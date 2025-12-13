@@ -289,24 +289,10 @@
         <div class="product-stack__container">
             <div class="section-intro product-stack__intro">
                 <h2>PlateWorth now. More AI decision tools in development.</h2>
-                <p>Beyond valuations, we're researching AI tools for complex decisions across finance, relationships, and lifestyle. Use the arrows to explore our pipeline.</p>
+                <p>Beyond valuations, we're researching AI tools for complex decisions across finance, relationships, and lifestyle. Use the arrows on desktop to explore our pipeline.</p>
             </div>
 
             <div class="product-stack__shell">
-                <!-- Navigation Buttons -->
-                <div class="product-stack__nav">
-                    <button class="stack-nav-btn stack-nav-btn--prev" aria-label="Previous product">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </button>
-                    <button class="stack-nav-btn stack-nav-btn--next" aria-label="Next product">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </button>
-                </div>
-
                 <div class="product-stack__cards">
                     <!-- Card 1: PlateWorth -->
                     <article class="product-card is-active" data-title="PlateWorth" data-color="plateworth">
@@ -463,6 +449,145 @@
                         </div>
                     </article>
                 </div>
+
+                <!-- Navigation Buttons -->
+                <div class="product-stack__nav">
+                    <button class="stack-nav-btn stack-nav-btn--prev" aria-label="Previous product">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <button class="stack-nav-btn stack-nav-btn--next" aria-label="Next product">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-stack__mobile">
+                <article class="product-mobile-card">
+                    <h3>PlateWorth – Our First Product</h3>
+                    <p>PlateWorth uses historical and real-time market signals to estimate a realistic value range for custom license plates in Australia. Whether you're selling, buying, or just curious, PlateWorth gives you data-backed insights to make confident decisions.</p>
+                    <a href="plateworth.html" class="btn btn-secondary">Learn More About PlateWorth</a>
+
+                    <div class="plateworth-visual">
+                        <div class="valuation-card">
+                            <div class="valuation-header">
+                                <span class="plate-state">VIC</span>
+                                <span class="plate-number">KING1</span>
+                            </div>
+
+                            <div class="valuation-divider"></div>
+
+                            <div class="valuation-values">
+                                <div class="value-item">
+                                    <span class="value-label">MIN</span>
+                                    <span class="value-amount">$3,500</span>
+                                </div>
+                                <div class="value-item value-item--primary">
+                                    <span class="value-label">AVG</span>
+                                    <span class="value-amount">$4,750</span>
+                                </div>
+                                <div class="value-item">
+                                    <span class="value-label">MAX</span>
+                                    <span class="value-amount">$6,200</span>
+                                </div>
+                            </div>
+
+                            <div class="valuation-graph">
+                                <svg width="100%" height="60" viewBox="0 0 300 60" preserveAspectRatio="none">
+                                    <defs>
+                                        <linearGradient id="graphGradientMobileStack" x1="0%" y1="0%" x2="0%" y2="100%">
+                                            <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.2" />
+                                            <stop offset="100%" style="stop-color:#10b981;stop-opacity:0.05" />
+                                        </linearGradient>
+                                    </defs>
+                                    <polygon class="graph-fill" points="0,60 0,30 150,25 300,35 300,60" fill="url(#graphGradientMobileStack)" />
+                                    <polyline class="graph-line" points="0,30 150,25 300,35" />
+                                    <circle class="graph-point graph-point-min" cx="0" cy="30" r="4" />
+                                    <circle class="graph-point graph-point-avg" cx="150" cy="25" r="5" />
+                                    <circle class="graph-point graph-point-max" cx="300" cy="35" r="4" />
+                                </svg>
+                            </div>
+
+                            <div class="valuation-footer">
+                                <span class="ai-badge">AI-Powered Estimate</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-mobile-card">
+                    <div class="future-pill-container">
+                        <p class="future-pill">Exploration Phase</p>
+                    </div>
+                    <h3>Relationship Decision Tools</h3>
+                    <p>Investigating AI applications for personal connection decisions.</p>
+                    <div class="future-visual-card future-visual-card--mobile" id="relationship-card-mobile">
+                        <div class="future-metric">
+                            <span class="future-metric-label">Connection Score</span>
+                            <span class="future-metric-value" data-relationship-score>87%</span>
+                        </div>
+                        <div class="future-metric">
+                            <span class="future-metric-label">Communication Quality</span>
+                            <span class="future-metric-value" data-relationship-quality>Strong</span>
+                        </div>
+                        <svg class="future-graph" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <radialGradient id="node-gradient-mobile">
+                                    <stop offset="0%" style="stop-color:#27267e;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#27267e;stop-opacity:0.3" />
+                                </radialGradient>
+                            </defs>
+                            <line class="connection-line" x1="50" y1="40" x2="100" y2="40" stroke="#27267e" stroke-width="2" opacity="0.6"/>
+                            <line class="connection-line" x1="100" y1="40" x2="150" y2="40" stroke="#27267e" stroke-width="2" opacity="0.6"/>
+                            <circle class="connection-node" cx="50" cy="40" r="8" fill="url(#node-gradient-mobile)"/>
+                            <circle class="connection-node pulse" cx="100" cy="40" r="10" fill="#27267e"/>
+                            <circle class="connection-node" cx="150" cy="40" r="8" fill="url(#node-gradient-mobile)"/>
+                        </svg>
+                        <div class="future-badge">AI-Powered Insights</div>
+                    </div>
+                </article>
+
+                <article class="product-mobile-card">
+                    <div class="future-pill-container">
+                        <p class="future-pill">Concept Phase</p>
+                    </div>
+                    <h3>Journal & Insights Tools</h3>
+                    <p>Exploring AI that identifies patterns and trends from your personal reflections.</p>
+                    <div class="future-visual-card future-visual-card--mobile" id="lifestyle-card-mobile">
+                        <div class="future-metric">
+                            <span class="future-metric-label">Mood Trend</span>
+                            <span class="future-metric-value" data-journal-mood>Positive</span>
+                        </div>
+                        <div class="future-metric">
+                            <span class="future-metric-label">Entries This Week</span>
+                            <span class="future-metric-value" data-journal-count>5</span>
+                        </div>
+                        <svg class="future-graph" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="journal-gradient-mobile" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.4" />
+                                    <stop offset="100%" style="stop-color:#10b981;stop-opacity:0" />
+                                </linearGradient>
+                            </defs>
+                            <polyline class="journal-trend-line"
+                                      points="10,60 50,50 90,45 130,40 170,35"
+                                      stroke="#10b981" stroke-width="2.5" fill="none"
+                                      stroke-linecap="round" stroke-linejoin="round"/>
+                            <polygon class="journal-trend-fill"
+                                     points="10,60 50,50 90,45 130,40 170,35 170,80 10,80"
+                                     fill="url(#journal-gradient-mobile)"/>
+                            <circle class="journal-dot pulse-slow" cx="10" cy="60" r="4" fill="#10b981"/>
+                            <circle class="journal-dot pulse-slow" cx="50" cy="50" r="4" fill="#10b981" style="animation-delay: 0.2s"/>
+                            <circle class="journal-dot pulse-slow" cx="90" cy="45" r="4" fill="#10b981" style="animation-delay: 0.4s"/>
+                            <circle class="journal-dot pulse-slow" cx="130" cy="40" r="4" fill="#10b981" style="animation-delay: 0.6s"/>
+                            <circle class="journal-dot pulse-slow" cx="170" cy="35" r="4" fill="#10b981" style="animation-delay: 0.8s"/>
+                        </svg>
+                        <div class="future-badge">AI-Powered Patterns</div>
+                    </div>
+                </article>
             </div>
         </div>
     </section>

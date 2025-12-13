@@ -1777,32 +1777,70 @@ img {
   flex-direction: column;
 }
 
+.product-stack__shell {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.product-stack__mobile {
+  display: none;
+}
+
+.product-mobile-card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-light-grey);
+}
+
+.product-mobile-card h3 {
+  margin-bottom: 0.75rem;
+}
+
+.product-mobile-card p {
+  margin-bottom: 1rem;
+}
+
+.product-mobile-card .btn {
+  margin-bottom: 1.25rem;
+}
+
+.product-mobile-card .plateworth-visual {
+  margin-top: 0.5rem;
+}
+
+.product-stack__mobile .future-visual-card {
+  margin-top: 1rem;
+  max-width: 100%;
+}
+
 /* Container that holds all overlapping cards */
 .product-stack__cards {
   position: relative;
   width: 100%;
   min-height: 500px;
-  max-height: 700px;
-  height: 600px;
-  margin: 2rem 0;
+  max-height: 650px;
+  height: 580px;
+  margin: 1.5rem 0;
+  grid-column: 1;
 }
 
 /* Navigation buttons */
 .product-stack__nav {
-  position: absolute;
-  right: -80px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 100;
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-}
-
-@media (max-width: 1400px) {
-  .product-stack__nav {
-    right: 1rem;
-  }
+  align-self: stretch;
+  justify-content: center;
+  grid-column: 2;
 }
 
 .stack-nav-btn {
@@ -1849,7 +1887,7 @@ img {
   background: var(--color-dark-grey-bg);
   border-radius: 1.5rem;
   box-shadow: 0 20px 60px rgba(15, 23, 42, 0.18);
-  padding: 3rem 4rem;
+  padding: 2.5rem 3rem;
   transform-origin: top left;
   opacity: 0;
   transform: translateY(40px) scale(0.96);
@@ -2209,15 +2247,18 @@ img {
   color: var(--color-green);
 }
 
-#relationship-card .future-metric-value[data-relationship-score] {
+#relationship-card .future-metric-value[data-relationship-score],
+#relationship-card-mobile .future-metric-value[data-relationship-score] {
   color: var(--color-deep-blue);
 }
 
-#lifestyle-card .future-metric-value[data-journal-mood] {
+#lifestyle-card .future-metric-value[data-journal-mood],
+#lifestyle-card-mobile .future-metric-value[data-journal-mood] {
   color: var(--color-green);
 }
 
-#lifestyle-card .future-metric-value[data-journal-count] {
+#lifestyle-card .future-metric-value[data-journal-count],
+#lifestyle-card-mobile .future-metric-value[data-journal-count] {
   color: var(--color-deep-blue);
 }
 
@@ -2227,8 +2268,10 @@ img {
   width: 100%;
   margin: 0 auto;
   flex: 1;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 /* Tab animation on appear */
@@ -2258,8 +2301,8 @@ img {
   }
 }
 
-/* Let mobile fall back to simple stacking */
-@media (max-width: 768px) {
+/* Let mobile fall back to simple stacking (match header breakpoint) */
+@media (max-width: 910px) {
   .product-stack {
     padding: 2rem 0;
   }
@@ -2274,6 +2317,17 @@ img {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+  }
+
+  .product-stack__shell {
+    display: none;
+  }
+
+  .product-stack__mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
   }
 
   .product-card {
