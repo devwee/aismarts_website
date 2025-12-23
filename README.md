@@ -1,6 +1,6 @@
-# AI Smarts Marketing Website
+# Aismarts Marketing Website
 
-A modern, minimalist marketing website for AI Smarts - an Australian AI startup building intelligent decision-making tools.
+A modern, minimalist marketing website for Aismarts - an Australian AI startup building intelligent decision-making tools.
 
 ## Project Structure
 
@@ -118,4 +118,4 @@ Company: MKB Solutions Pty Ltd (ABN 48 688 115 200)
 
 ## License
 
-© 2025 AI Smarts. All rights reserved.
+© 2025 Aismarts. All rights reserved.
